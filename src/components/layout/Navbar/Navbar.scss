@@ -1,10 +1,12 @@
-.header{
+.nav{
     // position: fixed;
     left: 0;
-    top: 0;
+    top: 100px;
+    position: fixed;
     width: 100px;
     height: 100vh;
     background-color: #282828;
+    display: block !important;
     ul{
         display: flex;
         flex-direction: column;
@@ -56,6 +58,16 @@
     &__correction{
         &::before{
             content: url('./../../../assets/header/correction.svg');
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .nav{
+        height: 0;
+        ul{
+            position: fixed;
+            right: 100%;
         }
     }
 }

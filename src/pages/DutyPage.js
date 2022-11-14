@@ -1,4 +1,4 @@
-import Button from '../components/Button/Button'
+
 import { Container } from "react-bootstrap";
 const DutyPage = () => {
     return (

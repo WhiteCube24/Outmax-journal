@@ -14,3 +14,12 @@ h1{
     font-size: 60px;
     color: #fff;
 }
+.wrapper{
+    margin-left: 100px;
+}
+
+@media (max-width: 480px) {
+    .wrapper{
+        margin-left: 0;
+    }
+}

@@ -13,7 +13,6 @@ function App() {
             <Layout/>
               <main>
               <Banner/>
-
                     <Routes>
                         <Route path="/" element={<MainPage/>}></Route>
                         <Route path="/duty" element={<DutyPage/>}></Route>
@@ -21,9 +20,8 @@ function App() {
                         <Route path="/comment" element={<CommentPage/>}></Route>
                         <Route path="/correction" element={<CorrectionPage/>}></Route>
                     </Routes>
-
               </main>
-          </div>
+          </div> 
           
         </div>
 
