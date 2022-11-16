@@ -11,7 +11,7 @@
     &__title{
         font-size: 30px;
         font-weight: 600;
-        font-family: 'Inter';
+        // font-family: 'Inter';
         color: #E2E2E2;
         padding-left: 30px;
     }
@@ -42,7 +42,7 @@
         width: 18px;
         height: 12px;
         cursor: pointer;
-        z-index: 4;
+        z-index: 101;
         &:before, &:after{
             content: '';
             background: #929292;

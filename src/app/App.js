@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Layout from "../components/layout/Layout";
 import Banner from '../components/shared/Banner/Banner'
+import '../index.css'
 
 import {MainPage, DutyPage, CoworkerPage, CommentPage, CorrectionPage} from '../pages'
 
