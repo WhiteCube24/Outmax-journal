@@ -1,5 +1,5 @@
 import './Banner.scss';
-import logo from '../../../assets/header/logo.svg';
+import logo from '../../../assets/img/banner/logo.svg';
 import {Link} from 'react-router-dom'
 const Banner = () => {
     return (

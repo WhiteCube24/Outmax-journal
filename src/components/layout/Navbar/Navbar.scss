@@ -22,7 +22,6 @@
                 color: #929292;
                 font-size: 12px;
                 text-decoration: none;
-                font-family: 'Inter';
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -41,27 +40,50 @@
     }
     &__duty{
         &::before{
-            content: url('./../../../assets/header/duty.svg');
+            content: url('./../../../assets/img/nav/duty.svg');
             
         }
     }
     &__coworker{
         &::before{
-            content: url('./../../../assets/header/coworker.svg');
+            content: url('./../../../assets/img/nav/coworker.svg');
         }
     }
     &__comment{
         &::before{
-            content: url('./../../../assets/header/comment.svg');
+            content: url('./../../../assets/img/nav/comment.svg');
         }
     }
     &__correction{
         &::before{
-            content: url('./../../../assets/header/correction.svg');
+            content: url('./../../../assets/img/nav/correction.svg');
         }
     }
 }
-
+.active.nav__duty{
+    &::before{
+        content: url('./../../../assets/img/nav/duty-active.svg');
+        
+    }
+}
+.active.nav__coworker{
+    &::before{
+        content: url('./../../../assets/img/nav/coworker-active.svg');
+        
+    }
+}
+.active.nav__comment{
+    &::before{
+        content: url('./../../../assets/img/nav/comment-active.svg');
+        
+    }
+}
+.active.nav__correction{
+    &::before{
+        content: url('./../../../assets/img/nav/correction-active.svg');
+        
+    }
+}
 @media (max-width: 480px) {
     .nav{
         height: 100%;
@@ -84,12 +106,13 @@
                     justify-content: flex-start;
                     position: relative;
                     width: 100%;
+                    
                     &:before{
                         margin-right: 10px;
                         margin-bottom: 0;
                     }
                     &:after{
-                        content: url('../../../assets/header/mobile/arrow.svg');
+                        content: url('../../../assets/img/nav/mobile/arrow.svg');
                         width: 24px;
                         height: 24px;
                         position: absolute;

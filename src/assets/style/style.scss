@@ -1,12 +1,7 @@
-
-
-* {
-    font-family: 'Inter', sans-serif;
-    box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 body{
-    background-color: #202020;
-    
+    background-color: #202020 !important;
+    font-family: 'Inter', sans-serif !important;
 }
 main{
     width: 100%;
@@ -19,10 +14,10 @@ h1{
     margin-left: 100px;
 }
 .container{
-    max-width: 1660px;
-    padding: 0 130px;
-    margin-left: 0;
-    margin-right: 0;
+    max-width: 1660px !important;
+    padding: 0 130px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 @media (max-width: 480px) {
     .wrapper{
@@ -32,3 +27,4 @@ h1{
         padding: 0 15px;
     }
 }
+
