@@ -1,7 +1,7 @@
 import MainPage from "./MainPage";
 import DutyPage from "./DutyPage";
-import CoworkerPage from "./CoworkerPage";
+import CoworkersPage from "./CoworkersPage";
 import CommentPage from "./CommentPage";
 import CorrectionPage from "./CorrectionPage";
 
-export {MainPage, DutyPage, CoworkerPage, CommentPage, CorrectionPage}
+export {MainPage, DutyPage, CoworkersPage, CommentPage, CorrectionPage}

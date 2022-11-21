@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+@import './variables.scss';
 body{
     background-color: #202020 !important;
     font-family: 'Inter', sans-serif !important;
@@ -10,14 +11,13 @@ h1{
     font-size: 60px;
     color: #fff;
 }
-.wrapper{
-    margin-left: 100px;
-}
 .container{
-    max-width: 1660px !important;
+    // max-width: 1660px !important;
+    max-width: 100% !important;
     padding: 0 130px !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
+    margin-top: 130px;
 }
 @media (max-width: 480px) {
     .wrapper{

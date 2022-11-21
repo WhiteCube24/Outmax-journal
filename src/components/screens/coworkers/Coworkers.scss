@@ -1,0 +1,117 @@
+
+.coworkers{
+    &__wrapper{
+        background-color: #282828;
+        width: 100%;
+        height: 100%;
+        padding: 20px 40px;
+    }
+    &__titles{
+        // display: flex;
+        // justify-content: space-between;
+        // align-items: center;
+        border-bottom: 1px solid #929292;
+        padding: 10px 0 10px 0;
+    }
+    &__title{
+        color: #929292;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    &__list{
+        padding: 0 0 20px 0;
+        &-item{
+            padding: 15px 0;
+            display: block;
+            // display: flex;
+            // align-items: center;
+            // justify-content: space-between;
+            border-bottom: 1px solid #929292;
+        }
+    }
+    .item{
+        &__name-wrapper{
+            display: flex;
+            align-items: center;
+        }
+        &__round{
+            color: #E2E2E2;
+            text-transform: uppercase;
+            font-size: 18px;
+            font-weight: 500;
+            background-color: #AE0001;
+            border-radius: 50%;
+            // padding: 10px 11.5px;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        &__block{
+            display: flex;
+            flex-direction: column;
+            margin-left: 10px;
+        }
+        &__name{
+            color: #E2E2E2;
+            font-size: 16px;
+            font-weight: 400;
+        }
+        &__position{
+            color: #929292;
+            font-size: 12px;
+            font-weight: 400;
+            margin-top: 5px;
+        }
+        &__phone, &__birthday, &__place, &__status, &__quote{
+            color: #E2E2E2;
+            font-size: 16px;
+            font-weight: 400;
+        }
+        &__quote{
+            font-size: 14px;
+            max-width: 360px;
+            -webkit-line-clamp: 3;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        &__phone{
+            text-decoration: none;
+        }
+        &__status {
+            display: flex;
+            align-items: center;
+
+            &-active{
+                &::before{
+                    content: url('../../../assets/img/coworkers/status.svg');
+                    width: 24px;
+                    height: 25px;
+                    // background-color: #5BD348;
+                }
+            }
+        }
+        
+    }
+    &__btn{
+        background-color: transparent;
+        border: none;
+        font-size: 12px;
+        color: #929292;
+        font-weight: 400;
+        cursor: pointer;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+
+@media (max-width: 1400px) {
+    .coworkers{
+        &__none{
+            display: none !important;
+        }
+    }
+}
