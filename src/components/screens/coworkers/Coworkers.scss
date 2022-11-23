@@ -86,11 +86,25 @@
 
             &-active{
                 &::before{
-                    content: url('../../../assets/img/coworkers/status.svg');
-                    width: 24px;
-                    height: 25px;
-                    // background-color: #5BD348;
+                    content: '';
+                    display: inline-block;
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background-color: #5BD348;
+                    margin-right: 8px;
+
                 }
+            }
+        }
+        &__more{
+            font-size: 12px;
+            font-weight: 400;
+            color: #929292;
+            cursor: pointer;
+            &:hover{
+                text-decoration: underline;
+                text-decoration-color: #929292;
             }
         }
         
@@ -107,11 +121,36 @@
     }
 }
 
-
-@media (max-width: 1400px) {
+@media (max-width: 1050px) {
+    .coworkers{
+        &__wrapper{
+            padding: 10px;
+        }
+    }
+}
+@media (max-width: 1400px){
     .coworkers{
         &__none{
-            display: none !important;
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .coworkers{
+        .item{
+            &__name{
+                &::after{
+                    content: '';
+                    display: inline-block;
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background-color: #5BD348;
+                    margin-left: 8px;
+
+                }
+            }
         }
     }
 }

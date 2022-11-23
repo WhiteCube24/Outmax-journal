@@ -43,19 +43,13 @@ const CoworkersList = () => {
         <div className='coworkers'>
             <div className="coworkers__wrapper">
             <div className="coworkers__titles">
-            {/* <span className="coworkers__title">Сотрудник</span>
-            <span className="coworkers__title">Номер телефона</span>
-            <span className="coworkers__title">Дата рождения</span>
-            <span className="coworkers__title">Место</span>
-            <span className="coworkers__title">Статус</span>
-            <span className="coworkers__title">Цитата</span> */}
                 <Row>
-                    <Col xxl={3} xl={3}><span className="coworkers__title">Сотрудник</span></Col>
-                    <Col xxl={2} xl={3}><span className="coworkers__title">Номер телефона</span></Col>
-                    <Col xxl={2} xl={2}><span className="coworkers__title">Дата рождения</span></Col>
-                    <Col xxl={1} xl={2}><span className="coworkers__title">Место</span></Col>
-                    <Col xxl={1} xl={2}><span className="coworkers__title">Статус</span></Col>
-                    <Col xxl={2} xl={0}><span className="coworkers__title coworkers__none">Цитата</span></Col>
+                    <Col xxl={3} xl={3} lg={4} md={6} sm={6} xs={6}><span className="coworkers__title">Сотрудник</span></Col>
+                    <Col xxl={2} xl={3} lg={3} className="d-xxl-block d-xl-block d-lg-block d-md-none d-none"><span className="coworkers__title">Номер телефона</span></Col>
+                    <Col xxl={2} xl={0} className="d-xxl-block d-none"><span className="coworkers__title">Дата рождения</span></Col>
+                    <Col xxl={1} xl={2} lg={1} className="d-xxl-block d-xl-block d-lg-block d-md-none d-none"><span className="coworkers__title">Место</span></Col>
+                    <Col xxl={1} xl={2} lg={2} md={4} sm={4} className="d-xxl-block d-xl-block d-lg-block d-md-block d-none"><span className="coworkers__title">Статус</span></Col>
+                    <Col xxl={2} xl={2} lg={2} className="d-xxl-block d-xl-block d-lg-block d-md-none d-none"><span className="coworkers__title coworkers__none">Цитата</span></Col>
                 </Row>
             </div>
             <ul className="coworkers__list">
