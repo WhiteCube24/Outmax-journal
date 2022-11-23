@@ -83,17 +83,27 @@
         &__status {
             display: flex;
             align-items: center;
-
-            &-active{
+            &::before{
+                content: '';
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                margin-right: 8px;
+            }
+            &-online{
                 &::before{
-                    content: '';
-                    display: inline-block;
-                    width: 8px;
-                    height: 8px;
-                    border-radius: 50%;
                     background-color: #5BD348;
-                    margin-right: 8px;
-
+                }
+            }
+            &-offline{
+                &::before{
+                    background-color: #929292;
+                }
+            }
+            &-away{
+                &::before{
+                    background-color: #AE0001;
                 }
             }
         }
@@ -102,6 +112,9 @@
             font-weight: 400;
             color: #929292;
             cursor: pointer;
+            &::before{
+                content: 'Подробнее';
+            }
             &:hover{
                 text-decoration: underline;
                 text-decoration-color: #929292;
@@ -139,16 +152,54 @@
 @media (max-width: 767px) {
     .coworkers{
         .item{
-            &__name{
+            &__status {
+                display: flex;
+                align-items: center;
+                &::before{
+                    display: none;
+                }
                 &::after{
                     content: '';
                     display: inline-block;
                     width: 8px;
                     height: 8px;
                     border-radius: 50%;
-                    background-color: #5BD348;
                     margin-left: 8px;
+                }
+                &-online{
+                    &::after{
+                        background-color: #5BD348;
+                    }
+                }
+                &-offline{
+                    &::after{
+                        background-color: #929292;
+                    }
+                }
+                &-away{
+                    &::after{
+                        background-color: #AE0001;
+                    }
+                }
+            }    
+        }
+    }
+    
+}
 
+@media (max-width: 480px) {
+    .coworkers{
+        .item{
+            &__more{
+                text-align: right;
+                &::before{
+                    content: '';
+                    width: 10px;
+                    height: 10px;
+                    border-top: 2px solid #929292;
+                    border-right: 2px solid #929292;
+                    transform: rotate(45deg);
+                    display: inline-block;
                 }
             }
         }
