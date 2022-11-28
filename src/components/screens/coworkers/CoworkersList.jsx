@@ -10,18 +10,21 @@ import { Row, Col } from 'react-bootstrap'
 import './Coworkers.scss'
 
 const CoworkersList = () => {
-    const {coworkers, coworkersLoadingStatus} = useSelector(state => state)
+    const {coworkers, coworkersLoadingStatus} = useSelector(state => state.coworkers)
     const dispatch = useDispatch()
     const {request} = useHttp()
 
 
+
     useEffect(() => {
         dispatch(coworkersFetching())
-        request("http://localhost:3001/coworkers")
+        request("https://outmax-office.ru/api/workers/32")
             .then(data => dispatch(coworkersFetched(data)))
             .catch(() => dispatch(coworkersFetchingError()))
        
     }, []);
+
+
 
     if(coworkersLoadingStatus === 'loading') {
         return <Spinner/>
@@ -31,9 +34,8 @@ const CoworkersList = () => {
         if(arr.length === 0) {
             return 
         }
-
         return arr.map(({id, ...props}) => {
-            return <CoworkersListItem key={id} {...props}/>
+            return <CoworkersListItem key={id} {...props} id={id} />
         })
     }
 

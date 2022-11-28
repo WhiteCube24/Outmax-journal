@@ -16,3 +16,22 @@ export const coworkersFetchingError = () => {
         type: 'COWORKERS_FETCHING_ERROR'
     }
 }
+export const coworkersPopupOpen = () => {
+    return {
+        type: 'COWORKERS_POPUP_OPEN',
+    }
+}
+export const coworkersPopupClose = (id) => {
+    return {
+        type: 'COWORKERS_POPUP_CLOSE',
+        payload: id
+    }
+}
+
+export const coworkersItemSelect = (coworker) => {
+    return {
+        type: 'COWORKERS_ITEM_SELECT',
+        payload: coworker
+       
+    }
+}

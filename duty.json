@@ -1,0 +1,41 @@
+{
+    "duty": [
+        {
+            "name": "Чупрова Татьяна",
+            "dates": "03.10, 10.10",
+            "office": "WhiteCube"
+        },
+        {
+            "name": "Какаулина Лидия",
+            "dates": "03.10, 10.10",
+            "office": "Outmax"
+        },
+        {
+            "name": "Боева Юлия",
+            "dates": "03.10, 10.10",
+            "office": "WhiteCube"
+        },
+        {
+            "name": "Чупрова Татьяна",
+            "dates": "03.10, 10.10",
+            "office": "WhiteCube"
+        },
+        {
+            "name": "Радыгин Иван",
+            "dates": "03.10, 10.10",
+            "office": "Outmax"
+        },
+        {
+            "name": "Чупрова Татьяна",
+            "dates": "03.10, 10.10",
+            "office": "WhiteCube"
+        },
+        {
+            "name": "Жуйко Михаил",
+            "dates": "03.10, 10.10",
+            "office": "WhiteCube"
+        }
+
+        
+    ]
+}
