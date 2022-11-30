@@ -4,17 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHttp } from '../../../hooks/http.hook';
 import {coworkersPopupClose, coworkersPopupOpen, coworkersItemSelect} from '../../../actions'
 import CoworkersPopup from './CoworkersPopup';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import useRequest from '../../../hooks/useRequest'
 
 
 const CoworkersListItem = ({name, position, phone, date, workplace, status, quote, id, image, symbol}) => {
     
-    // useSelector вынести state.popupOpen(true/false)
-    // динамический класс добавлять основываясь на state.popupOpen
-    // // при запросе возвращать компонент попапа, передавать все пропсы как в лист айтеме
     const dispatch = useDispatch()
-    const {сoworkerPopup, popupOpen} = useSelector(state => state.coworkerPopup)
+    const {сoworkerItem} = useSelector(state => state.coworkerPopup.сoworkerItem)
     const {request} = useHttp()
     const {getCoworker} = useRequest()
 
@@ -23,8 +20,8 @@ const CoworkersListItem = ({name, position, phone, date, workplace, status, quot
     //         // .then(data => console.log(data))
     //         .then(coworker => dispatch(coworkersItemSelect(coworker)))
     //         .then(dispatch(coworkersPopupOpen(true)))
-    //         // .then(data => console.log(data))
-    //         .then(coworker => renderCoworkerPopup(coworker))
+    //         .then(data => console.log(data))
+    //         // .then(coworker => renderCoworkerPopup(coworker))
     //         console.log(popupOpen)
     //         // .then(console.log('render'))
     //         // return (
@@ -32,38 +29,46 @@ const CoworkersListItem = ({name, position, phone, date, workplace, status, quot
     //         // )
 
     // }, [id])
-
+    // console.log(popupOpen === false)
+    var popup;
     const getCoworkerPopup = useCallback((id) => {
         getCoworker(id)
-            .then(coworker => dispatch(coworkersItemSelect(coworker)))
-            .then(data => console.log(data))
-            .then(dispatch(coworkersPopupOpen(true)))
+            // .then(dispatch(coworkersPopupOpen()))
+            .then(dispatch(coworkersItemSelect(id)))
+            
+            // .then(data => console.log(data))
+            .then(data => renderCoworkerPopup(data))
+            .then(console.log(сoworkerItem))
+            // .then(renderCoworkerPopup)
+            // .then(test())
+            // console.log(сoworkerItem)
+            
+            // .then(console.log(id))
+            // .then(coworker => renderCoworkerPopup(coworker, id))
     }, [id])
 
-
-    const renderCoworkerPopup = (item) => {
-        // event.stopPropagation()
-        // if(item ===  undefined) {
-        //     return
-        // }
-        
-        return item.payload.map(({id, ...props}) => {
-            return <View {...props}/>
-        })
-        // console.log(item.payload[0])
-        // console.log(item.payload);
-        // return item.payload.map(it => {
-        //     return <View {...props}/>
-        // })
-    //    let  arr = item.payload
+    
+    const renderCoworkerPopup = (data) => {
        
-    //     // console.log(item);
-    //     // console.log(typeof item)
-    //     return item.payload.map(({id, ...props}) => {
-    //         return <View {...props}/>
-    //     })
+            console.log(data)
+            return <View data={data}/>
+        
+            
+        
+        // const test = renderCoworkerPopup(data)
+        // console.log(popupOpen);
+        // return popup = popupOpen === false ? <View /> : null
+        // console.log(item); 
+        // return item.payload.map(({...props}) => {
+        //     // console.log({...props});
+        //     // return <View {...props}/>
+        //     // return popup
+        // })
+        // console.log(popup);
+        // return popup
+        // return popup
+       
     }
-
     // const closePopup = () => {
     //     dispatch(coworkersPopupClose())
     // }
@@ -71,11 +76,11 @@ const CoworkersListItem = ({name, position, phone, date, workplace, status, quot
     
     const { width } = useWindowDimensions();
     let statusClassName = "item__status";
-
     status === "Онлайн" ? statusClassName += " item__status-online" : status === "Офлайн" ? statusClassName += " item__status-offline" : statusClassName += " item__status-away"
- 
-    // const popup = popupOpen ? <View/> : null
-
+    
+    // let popup;
+        // let popup = popupOpen ? <View coworker={сoworkerItem}/> : null
+    
    
     const workerImage = () => {
         let arr = Object.values({image})
@@ -127,22 +132,24 @@ const CoworkersListItem = ({name, position, phone, date, workplace, status, quot
             </div>
             </Col>
             <Col xxl={0} xl={2} lg={2} md={2} sm={4} xs={4}>
-                <div className="item__more d-xxl-none d-xl-block" onClick={() => getCoworkerPopup(id)}></div>
+                <div className="item__more d-xxl-none d-xl-block"   onClick={() => getCoworkerPopup(id)}></div>
             </Col>
             </Row>
         </li>
         {/* {popup} */}
-        {/* <View/> */}
+        
+        <View/>
         </div>
     )
 }
 
 
 
-const View = ({name}) => {
-
-    
-
+const View = (data) => {
+    console.log(data);
+    // console.log(props)
+    const {name, position, status, date, workplace} = data;
+    // console.log({name})
     return (
         <div className="coworkers coworkers-popup">
             <div className="coworkers-popup__close"></div>
@@ -152,13 +159,13 @@ const View = ({name}) => {
                         <div  className="item__round">чт</div>
                         <div className="item__block">
                             <span className="item__name">{name}</span>
-                            <span className="item__position">Дизайнер</span>
+                            <span className="item__position">{}</span>
                         </div>
                     </div>
                 </div>
                 <div className="item">
                     <span className="coworkers__title">Статус</span>
-                    <span className="item__status">Online</span>
+                    <span className="item__status">{}</span>
                 </div>
                 <div className="item">
                 <span className="coworkers__title">Телефон</span>
@@ -166,15 +173,15 @@ const View = ({name}) => {
                 </div>
                 <div className="item">
                 <span className="coworkers__title">Дата рождения</span>
-                    <span className="item__birthday">22 ноября</span>
+                    <span className="item__birthday">{}</span>
                 </div>
                 <div className="item">
                 <span className="coworkers__title">Рабочее место</span>
-                    <span className="item__place">Офис</span>
+                    <span className="item__place">{}</span>
                 </div>
                 <div className="item">
                     <span className="coworkers__title">Цитата</span>
-                    <div className="item__quote">фвывф вфыв фавdsadsa ad asd sa524 5dad asd asd as asd sa sadsadsadas dssdas das 135 аываыавы аыв</div>
+                    <div className="item__quote">aaaa</div>
                 </div>
             </div>
         </div>

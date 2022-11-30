@@ -3,7 +3,7 @@ import { useHttp } from "./http.hook";
 const useRequest = () => {
     const {request} = useHttp()
 
-    const apiAddress = 'https://outmax-office.ru/api/workers/32';
+    const apiAddress = 'https://outmax-office.ru/api/workers/2';
     const apiGetOne = 'https://outmax-office.ru/api/worker/'
 
     const getAllCoworkers = async () => {
@@ -13,8 +13,11 @@ const useRequest = () => {
     }
     const getCoworker = async (id) => {
         const res = await request(`https://outmax-office.ru/api/worker/${id}`)
-        return res
+        // console.log(res[0])
+        return res[0]
     }
+
+
     
     return {getAllCoworkers, getCoworker}
 }

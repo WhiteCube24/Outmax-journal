@@ -21,10 +21,9 @@ export const coworkersPopupOpen = () => {
         type: 'COWORKERS_POPUP_OPEN',
     }
 }
-export const coworkersPopupClose = (id) => {
+export const coworkersPopupClose = () => {
     return {
         type: 'COWORKERS_POPUP_CLOSE',
-        payload: id
     }
 }
 

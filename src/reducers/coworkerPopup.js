@@ -1,8 +1,6 @@
-import { coworkersPopupClose } from "../actions"
-
 const inititalState = {
     popupOpen: false,
-    сoworkerPopup: []
+    сoworkerItem: []
     
 }
 
@@ -14,15 +12,17 @@ const coworkerPopup = (state = inititalState, action) => {
                 ...state,
                 popupOpen: true
             }
-        case 'COWORKERS_POPUP_CLOSE':
-            return{
-                ...state, 
-                popupOpen: false
-            }
+        // case 'COWORKERS_POPUP_CLOSE':
+        //     return{
+        //         ...state, 
+        //         popupOpen: false
+        //     }
         case 'COWORKERS_ITEM_SELECT':
             return {
-                popupOpen: true,
-                сoworkerPopup: action.payload
+                ...state,
+                // popupOpen: true,
+                сoworkerItem: action.payload
+               
             }
         default: return state
 

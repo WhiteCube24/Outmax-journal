@@ -1,5 +1,5 @@
 import { useHttp } from '../../../hooks/http.hook'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import {coworkersFetching, coworkersFetched, coworkersFetchingError} from '../../../actions'
@@ -11,6 +11,12 @@ import { Row, Col } from 'react-bootstrap'
 import './Coworkers.scss'
 
 const CoworkersList = () => {
+    const [coworker, setCoworker] = useState(null)
+
+    const onCoworkerSelected = (id) => {
+        setCoworker(id)
+        console.log(coworker)
+    }
     const {coworkers, coworkersLoadingStatus} = useSelector(state => state.coworkers)
     const dispatch = useDispatch()
     const {request} = useHttp()
@@ -29,7 +35,6 @@ const CoworkersList = () => {
         dispatch(coworkersFetching())
         getAllCoworkers()
             .then(data => dispatch(coworkersFetched(data)))
-            .then(data => console.log(data))
     }
     // useEffect(() => {
     //     dispatch(coworkersFetching())
