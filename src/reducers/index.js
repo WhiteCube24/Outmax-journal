@@ -27,7 +27,6 @@
 //                 coworkersLoadingStatus: 'error'
 //             }
 //             case 'COWORKERS_POPUP_OPEN':
-//                 // const openCoworker = state.coworkers.filter(item => item.id === action.payload)
 //                 return {
 //                     ...state,
 //                     popupOpen: true
@@ -50,11 +49,11 @@
 // export default reducer;
 
 
-// // import { combineReducers } from "redux";
-// // import coworkerPopup from "./coworkerPopup";
-// // import coworkers from "./coworkers";
+// import { combineReducers } from "redux";
+// import coworkerPopup from "./coworkerPopup";
+// import coworkers from "./coworkers";
 
-// // export default combineReducers({
-// //     coworkerPopup, 
-// //     coworkers
-// // })
+// export default combineReducers({
+//     coworkerPopup, 
+//     coworkers
+// })

@@ -3,9 +3,9 @@ import { Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHttp } from '../../../hooks/http.hook';
 import {coworkersPopupClose, coworkersPopupOpen, coworkersItemSelect} from '../../../actions'
-import avatar from '../../../assets/img/coworkers/avatar.jpg'
 import CoworkersPopup from './CoworkersPopup';
 import { useCallback } from 'react';
+import useRequest from '../../../hooks/useRequest'
 
 
 const CoworkersListItem = ({name, position, phone, date, workplace, status, quote, id, image, symbol}) => {
@@ -16,20 +16,28 @@ const CoworkersListItem = ({name, position, phone, date, workplace, status, quot
     const dispatch = useDispatch()
     const {сoworkerPopup, popupOpen} = useSelector(state => state.coworkerPopup)
     const {request} = useHttp()
+    const {getCoworker} = useRequest()
 
-    const getCoworker = useCallback((id) => {
-        request(`https://outmax-office.ru/api/worker/${id}`)
-            // .then(data => console.log(data))
+    // const getCoworker = useCallback((id) => {
+    //     request(`https://outmax-office.ru/api/worker/${id}`)
+    //         // .then(data => console.log(data))
+    //         .then(coworker => dispatch(coworkersItemSelect(coworker)))
+    //         .then(dispatch(coworkersPopupOpen(true)))
+    //         // .then(data => console.log(data))
+    //         .then(coworker => renderCoworkerPopup(coworker))
+    //         console.log(popupOpen)
+    //         // .then(console.log('render'))
+    //         // return (
+    //         //     <CoworkersPopup/>
+    //         // )
+
+    // }, [id])
+
+    const getCoworkerPopup = useCallback((id) => {
+        getCoworker(id)
             .then(coworker => dispatch(coworkersItemSelect(coworker)))
+            .then(data => console.log(data))
             .then(dispatch(coworkersPopupOpen(true)))
-            // .then(data => console.log(data))
-            .then(coworker => renderCoworkerPopup(coworker))
-            console.log(popupOpen)
-            // .then(console.log('render'))
-            // return (
-            //     <CoworkersPopup/>
-            // )
-
     }, [id])
 
 
@@ -66,7 +74,7 @@ const CoworkersListItem = ({name, position, phone, date, workplace, status, quot
 
     status === "Онлайн" ? statusClassName += " item__status-online" : status === "Офлайн" ? statusClassName += " item__status-offline" : statusClassName += " item__status-away"
  
-    const popup = popupOpen ? <View/> : null
+    // const popup = popupOpen ? <View/> : null
 
    
     const workerImage = () => {
@@ -119,7 +127,7 @@ const CoworkersListItem = ({name, position, phone, date, workplace, status, quot
             </div>
             </Col>
             <Col xxl={0} xl={2} lg={2} md={2} sm={4} xs={4}>
-                <div className="item__more d-xxl-none d-xl-block" onClick={() => getCoworker(id)}></div>
+                <div className="item__more d-xxl-none d-xl-block" onClick={() => getCoworkerPopup(id)}></div>
             </Col>
             </Row>
         </li>

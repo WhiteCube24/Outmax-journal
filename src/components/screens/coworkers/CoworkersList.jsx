@@ -3,9 +3,10 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import {coworkersFetching, coworkersFetched, coworkersFetchingError} from '../../../actions'
+import useRequest from '../../../hooks/useRequest'
+
 import CoworkersListItem from './CoworkersListItem'
 import Spinner from '../../shared/spinner/Spinner'
-
 import { Row, Col } from 'react-bootstrap'
 import './Coworkers.scss'
 
@@ -14,16 +15,32 @@ const CoworkersList = () => {
     const dispatch = useDispatch()
     const {request} = useHttp()
 
-
+    const {getAllCoworkers} = useRequest()
+    
+    // getAllCoworkers()
+    //     .then(data => console.log(data))
+    // // console.log(getAllCoworkers) 
 
     useEffect(() => {
-        dispatch(coworkersFetching())
-        request("https://outmax-office.ru/api/workers/32")
-            .then(data => dispatch(coworkersFetched(data)))
-            .catch(() => dispatch(coworkersFetchingError()))
-       
-    }, []);
+        onRequest()
+    },[])
 
+    const onRequest = () => {
+        dispatch(coworkersFetching())
+        getAllCoworkers()
+            .then(data => dispatch(coworkersFetched(data)))
+            .then(data => console.log(data))
+    }
+    // useEffect(() => {
+    //     dispatch(coworkersFetching())
+    //     request("https://outmax-office.ru/api/workers/32")
+    //         .then(data => dispatch(coworkersFetched(data)))
+    //         .then(data => console.log(data))
+    //         .catch(() => dispatch(coworkersFetchingError()))
+       
+    // }, []);
+
+    
 
 
     if(coworkersLoadingStatus === 'loading') {
