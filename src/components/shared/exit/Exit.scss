@@ -16,6 +16,7 @@
         }
     }
     &-left{
+        display: none;
         &::after{
             display: none;
         }
@@ -29,5 +30,13 @@
         bottom: 10%;
         font-size: 14px;
         font-weight: 400;
+    }
+}
+
+@media (max-width: 480px) {
+    .exit {
+        &-position{
+            display: block;
+        }
     }
 }
