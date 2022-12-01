@@ -34,3 +34,13 @@ export const coworkersItemSelect = (coworker) => {
        
     }
 }
+export const openBurger = () => {
+    return {
+        type: 'BURGER_OPEN',
+    }
+} 
+export const closeBurger = () => {
+    return {
+        type: 'BURGER_CLOSE',
+    }
+} 
