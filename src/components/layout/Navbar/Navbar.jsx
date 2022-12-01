@@ -44,8 +44,6 @@ const Navbar = () => {
                         <Link to="/profile" className="name" onClick={() => dispatch(closeBurger())}>Михаил</Link>
                         <span className="workplace">Рабочее место: <span className="workplace-green">Офис</span></span>
                         <Exit position={'right'}/>
-                        
-                        {/* <div className="exit">Выйти</div> */}
                     </div>
                 </div>
                 <Exit position={'left'} component={'nav'}/>

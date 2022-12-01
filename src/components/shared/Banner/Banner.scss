@@ -18,16 +18,19 @@
 .burger{
     display: none;
 }
-
+@media (max-width: 768px) {
+    .banner{
+        &__title{
+            font-size: 20px;
+        }
+    }
+}
 @media (max-width: 480px) {
     .banner{
         padding-right: 20px;
         justify-content: space-between;
         height: 75px;
         position: static;
-        &-fixed{
-            // position: fixed;
-        }
         &__logo{
             height: 100%;
             img{
