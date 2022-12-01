@@ -1,6 +1,4 @@
 .nav{
-    // position: fixed;
-    // left: 0;
     top: 100px;
     position: fixed;
     width: 100px;
@@ -28,6 +26,55 @@
                 flex-direction: column;
                 text-align: center;
                 
+            }
+        }
+    }
+    &__profile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 20%;
+        .info{
+            text-align: center;
+        }
+        .thumbnail{
+            background-color: #AE0001;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 5px;
+            text-decoration: none;
+        }
+        .name{
+            font-size: 12px;
+            font-weight: 600;
+            color: #fff;
+            text-decoration: none;
+        }
+        .workplace{
+            display: none;
+        }
+        .exit{
+            font-size: 12px;
+            font-weight: 600;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            cursor: pointer;
+            &::after{
+                content: url('../../../assets/img/nav/exit.svg');
+                margin-left: 5px;
             }
         }
     }
@@ -92,16 +139,51 @@
         right: -100%;
         transition: all .2s;
         top: 0;
+        z-index: 22;
+        display: flex !important;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        z-index: 100;
+        padding: 0 20px !important;
         &-active{
             right: 0;
-            transition: all .2s;
+            transition: all .3s;
+        }
+        &__profile{
+            margin-top: 40px;
+            position: static;
+            right: 0;
+            transform: translateX(0);
+            bottom: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            .info{
+                text-align: initial;
+                margin-left: 10px;
+            }
+            .exit-right{
+                display: none;
+            }
+            .exit-left{
+                position: absolute;
+                bottom: 10%;
+                font-size: 14px;
+                font-weight: 400;
+            }
+            .workplace{
+                display: block;
+                font-size: 12px;
+                font-weight: 400;
+                color: #fff;
+                margin-top: 10px;
+                &-green{
+                    color: #5BD348;
+                }
+            }
         }
         ul{
-            // position: fixed;
-            // right: 100%;
-            margin-top: 50px;
             align-items: flex-start;
-            padding: 0 20px;
             li{
                 width: 100%;
                 a{

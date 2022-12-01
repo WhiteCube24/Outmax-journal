@@ -15,17 +15,21 @@ const Banner = () => {
         return burgerIsOpen === false ? dispatch(openBurger()) : dispatch(closeBurger()) 
     }
 
-    let defaultClass = 'burger'
+    let burgerClass = 'burger',
+        bannerClass = 'banner'
 
     if(burgerIsOpen === true) {
-        defaultClass += ' burger-active'
+        burgerClass += ' burger-active'
+    }
+    if(burgerIsOpen === false) {
+        bannerClass += ' banner-fixed'
     }
 
     return (
-        <div className="banner">
+        <div className={bannerClass}>
             <Link to="/" className="banner__logo"><img src={logo} alt=""></img></Link>
             <h1 className="banner__title">Привет, мы тебя не узнали. Авторизируйся в системе.</h1>
-            <div className={defaultClass} onClick={() => onBurger()}>
+            <div className={burgerClass} onClick={() => onBurger()}>
                 <span></span>
             </div>
         </div>

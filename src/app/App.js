@@ -4,12 +4,13 @@ import Layout from "../components/layout/Layout";
 import Banner from '../components/shared/banner/Banner'
 import '../assets/style/style.scss';
 
-import {MainPage, DutyPage, CoworkersPage, CommentPage, CorrectionPage} from '../pages'
+import {MainPage, DutyPage, CoworkersPage, CommentPage, CorrectionPage, ProfilePage} from '../pages'
 
 function App() {
   return (
     <Router>
        <div className="App">
+       
           <div className="app-content d-flex">
             <Layout/>
               <main>
@@ -20,6 +21,7 @@ function App() {
                         <Route path="/coworker" element={<CoworkersPage/>}></Route>
                         <Route path="/comment" element={<CommentPage/>}></Route>
                         <Route path="/correction" element={<CorrectionPage/>}></Route>
+                        <Route path="/profile" element={<ProfilePage/>}></Route>
                     </Routes>
               </main>
           </div> 

@@ -1,11 +1,6 @@
 import useWindowDimensions from '../../../hooks/useWindowDimensions'
 import { Row, Col } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux';
-import { useHttp } from '../../../hooks/http.hook';
-import {coworkersPopupClose, coworkersPopupOpen, coworkersItemSelect} from '../../../actions'
-import CoworkersPopup from './CoworkersPopup';
-import { useCallback, useState } from 'react';
-import useRequest from '../../../hooks/useRequest'
+
 
 
 const CoworkersListItem = ({name, position, phone, date, workplace, status, quote, id, image, symbol}) => {

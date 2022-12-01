@@ -1,0 +1,33 @@
+.exit{
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    cursor: pointer;
+    &-right{
+        &::before{
+            display: none;
+        }
+        &::after{
+            content: url('../../../assets/img/nav/exit.svg');
+            margin-left: 5px;
+        }
+    }
+    &-left{
+        &::after{
+            display: none;
+        }
+        &::before{
+            content: url('../../../assets/img/nav/exit-big.svg');
+            margin-right: 5px;
+        }
+    }
+    &-position{
+        position: absolute;
+        bottom: 10%;
+        font-size: 14px;
+        font-weight: 400;
+    }
+}
