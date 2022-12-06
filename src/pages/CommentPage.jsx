@@ -1,10 +1,18 @@
+import Comment from '../components/screens/comment/Comment';
 import { Container } from 'react-bootstrap';
 
 const CommentPage = () => {
+
+    
+    
     return (
-        <Container>
-            <h1>ЧЕЛОВЕКОМ НАХУЙ</h1>
-        </Container>
+        <> 
+        
+            <div className='overlay-active'></div>
+            <Container>
+                <Comment/>
+            </Container>
+        </>
     )
 }
 

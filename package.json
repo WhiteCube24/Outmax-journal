@@ -20,7 +20,8 @@
     "sass": "^1.56.1",
     "styled-reset": "^4.4.2",
     "typeface-inter": "^3.18.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "concurrently \"react-scripts start\" \"npx json-server coworkers.json --port 3001\"",
@@ -45,5 +46,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "formik": "^2.2.9"
   }
 }

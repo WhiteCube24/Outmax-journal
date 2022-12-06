@@ -47,7 +47,6 @@ const CoworkersList = () => {
 
     
 
-
     if(coworkersLoadingStatus === 'loading') {
         return <Spinner/>
     }

@@ -1,10 +1,10 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
 
 import Layout from "../components/layout/Layout";
 import Banner from '../components/shared/banner/Banner'
 import '../assets/style/style.scss';
 
-import {MainPage, DutyPage, CoworkersPage, CommentPage, CorrectionPage, ProfilePage} from '../pages'
+import {MainPage, DutyPage, CoworkersPage, CommentPage, RequestPage, ProfilePage} from '../pages'
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
                         <Route path="/duty" element={<DutyPage/>}></Route>
                         <Route path="/coworker" element={<CoworkersPage/>}></Route>
                         <Route path="/comment" element={<CommentPage/>}></Route>
-                        <Route path="/correction" element={<CorrectionPage/>}></Route>
+                        <Route path="/request" element={<RequestPage/>}></Route>
                         <Route path="/profile" element={<ProfilePage/>}></Route>
                     </Routes>
               </main>
