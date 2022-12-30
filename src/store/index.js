@@ -3,11 +3,12 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import coworkerPopup from '../reducers/coworkerPopup';
 import coworkers from '../reducers/coworkers';
 import burger from '../reducers/burger'
+import auth from '../reducers/auth';
 // import reducer from '../reducers/index'
 
 // const store = configureStore({reducer, devTools: process.env.NODE_ENV !== 'production'
 // // })
-let reducer = combineReducers({coworkers: coworkers, coworkerPopup: coworkerPopup, burger: burger})
+let reducer = combineReducers({coworkers: coworkers, coworkerPopup: coworkerPopup, burger: burger, auth: auth})
 
 const store = configureStore({reducer},
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

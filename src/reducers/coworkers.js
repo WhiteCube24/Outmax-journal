@@ -2,7 +2,6 @@
 const inititalState = {
     coworkers: [],
     coworkersLoadingStatus: 'empty'
-    
 }
 
 const coworkers = (state = inititalState, action) => {

@@ -7,11 +7,8 @@ const useRequest = () => {
     const apiGetOne = 'https://outmax-office.ru/api/worker/'
 
     const getAllCoworkers = async (count = 8) => {
-        // const res = await request(apiAddress)
-        // return res
-        
-            return await axios.get(`http://127.0.0.1:8000/api/workers/${count}`).then((response) => {
-                console.log(response.data)
+        return await axios.get(`http://127.0.0.1:8000/api/workers/${count}`)
+            .then((response) => {
                 return  response.data
             })
         

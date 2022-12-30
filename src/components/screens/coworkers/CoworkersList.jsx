@@ -2,7 +2,6 @@ import { useHttp } from '../../../hooks/http.hook'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import axios from 'axios'
 
 import {coworkersFetching, coworkersFetched, coworkersFetchingError} from '../../../actions'
 import useRequest from '../../../hooks/useRequest'
@@ -13,7 +12,9 @@ import { Row, Col } from 'react-bootstrap'
 import './Coworkers.scss'
 
 const CoworkersList = () => {
-    const [coworker, setCoworker] = useState(null)
+    const [coworkersEnded, setCoworkersEnded] = useState(false)
+    const [count, setCount] = useState(8)
+    // const [count, setCount] = useState(8)
 
     // const onCoworkerSelected = (id) => {
     //     setCoworker(id)
@@ -25,14 +26,15 @@ const CoworkersList = () => {
 
     const {getAllCoworkers} = useRequest()
     
-
+    
     useEffect(() => {
-        onRequest()
+        onRequest(count)
     },[])
 
-    const onRequest = async  () => {
-        const data = await getAllCoworkers()
+    const onRequest = async  (count) => {
+        const data = await getAllCoworkers(count)
         dispatch(coworkersFetched(data))
+        setCount(count => count + 8)
          
     }
     // useEffect(() => {
@@ -77,7 +79,7 @@ const CoworkersList = () => {
             <ul className="coworkers__list">
                 {elements ? elements : <Spinner/>}
             </ul>
-            <button className="coworkers__btn">Показать ещё</button>
+            <button className="coworkers__btn" onClick={() => onRequest(count)}>Показать ещё</button>
         </div>
         </div>
     )

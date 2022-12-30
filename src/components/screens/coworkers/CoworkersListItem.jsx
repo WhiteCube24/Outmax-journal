@@ -57,7 +57,7 @@ const CoworkersListItem = ({name, position, phone, date, workplace, status, quot
                     </Col>
                     <Col xxl={3} xl={0} className="d-xxl-block d-none">
                     <div className="item">
-                        <div className="item__quote d-xxl-block d-none">{id}</div>
+                        <div className="item__quote d-xxl-block d-none">{quote}</div>
                     </div>
                     </Col>
                     <Col xxl={0} xl={2} lg={2} md={2} sm={4} xs={4}>
