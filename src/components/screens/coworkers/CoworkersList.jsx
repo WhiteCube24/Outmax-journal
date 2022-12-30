@@ -2,6 +2,8 @@ import { useHttp } from '../../../hooks/http.hook'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import axios from 'axios'
+
 import {coworkersFetching, coworkersFetched, coworkersFetchingError} from '../../../actions'
 import useRequest from '../../../hooks/useRequest'
 
@@ -13,28 +15,25 @@ import './Coworkers.scss'
 const CoworkersList = () => {
     const [coworker, setCoworker] = useState(null)
 
-    const onCoworkerSelected = (id) => {
-        setCoworker(id)
-        console.log(coworker)
-    }
+    // const onCoworkerSelected = (id) => {
+    //     setCoworker(id)
+    //     console.log(coworker)
+    // }
     const {coworkers, coworkersLoadingStatus} = useSelector(state => state.coworkers)
     const dispatch = useDispatch()
     const {request} = useHttp()
 
     const {getAllCoworkers} = useRequest()
     
-    // getAllCoworkers()
-    //     .then(data => console.log(data))
-    // // console.log(getAllCoworkers) 
 
     useEffect(() => {
         onRequest()
     },[])
 
-    const onRequest = () => {
-        dispatch(coworkersFetching())
-        getAllCoworkers()
-            .then(data => dispatch(coworkersFetched(data)))
+    const onRequest = async  () => {
+        const data = await getAllCoworkers()
+        dispatch(coworkersFetched(data))
+         
     }
     // useEffect(() => {
     //     dispatch(coworkersFetching())
@@ -76,7 +75,7 @@ const CoworkersList = () => {
                 </Row>
             </div>
             <ul className="coworkers__list">
-                {elements}
+                {elements ? elements : <Spinner/>}
             </ul>
             <button className="coworkers__btn">Показать ещё</button>
         </div>

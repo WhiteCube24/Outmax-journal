@@ -1,14 +1,21 @@
 import { useHttp } from "./http.hook";
-
+import axios from "axios";
 const useRequest = () => {
     const {request} = useHttp()
 
-    const apiAddress = 'https://outmax-office.ru/api/workers/32';
+    const apiAddress = 'http://127.0.0.1:8000/api/workers/8';
     const apiGetOne = 'https://outmax-office.ru/api/worker/'
 
-    const getAllCoworkers = async () => {
-        const res = await request(apiAddress)
-        return res
+    const getAllCoworkers = async (count = 8) => {
+        // const res = await request(apiAddress)
+        // return res
+        
+            return await axios.get(`http://127.0.0.1:8000/api/workers/${count}`).then((response) => {
+                console.log(response.data)
+                return  response.data
+            })
+        
+        
         
     }
     const getCoworker = async (id) => {
